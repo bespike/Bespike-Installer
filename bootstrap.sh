@@ -32,6 +32,13 @@ fi
 #fi
 
 #if [ ! -d $RealHome/bespikeinstall ]; then
+if [ ! -f /usr/bin/sudo ]; then
+  echo "Installing sudo . . ."
+  apt-get -q -q update
+  DEBIAN_FRONTEND=noninteractive apt-get -q -q install -y sudo < /dev/null
+  echo
+fi
+
 if [ ! -d /bespikeinstall ]; then
   if [ ! -f /usr/bin/git ]; then
     echo "Installing git . . ."
